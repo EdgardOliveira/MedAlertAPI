@@ -1,4 +1,4 @@
-import {Medicamento, PrismaClient} from "@prisma/client";
+import {Medicamento} from "@prisma/client";
 import type {NextApiRequest, NextApiResponse} from "next";
 import prisma from "../../../client/client";
 
@@ -106,24 +106,25 @@ async function consultarBulaAPI(medicamento: Medicamento) {
     });
 
     const bula = await resultado.json();
-    if (bula != null)
+    if (bula != null) {
         console.log(`A API Bula retornou os dados... \n${JSON.stringify(bula, null, 4)}`);
 
-    //Considerando o primeiro resultado
-    if (bula.content[0] != null) {
-        //tem dados da bula... atualiza os campos referente a bula no JSON
-        //Concatenando conteúdos
-        let medicamentoBula = {
-            ...medicamento,
-            idProduto: bula.content[0].idProduto,
-            registro: bula.content[0].numeroRegistro,
-            bula: bula.content[0].idBulaPacienteProtegido,
-        };
-        console.log('Atualizando dados da bula do medicamento no banco de dados...');
-        const medicamentoAtualizado = await atualizarMedicamentoBD(medicamentoBula);
-        if (medicamentoAtualizado != null)
-            console.log(`Dados da bula foram incluídos no registro do medicamento... \n${JSON.stringify(medicamentoAtualizado, null, 4)}`);
-        return medicamentoAtualizado;
+        //Considerando o primeiro resultado
+        if (bula.content[0] != null) {
+            //tem dados da bula... atualiza os campos referente a bula no JSON
+            //Concatenando conteúdos
+            let medicamentoBula = {
+                ...medicamento,
+                idProduto: bula.content[0].idProduto,
+                registro: bula.content[0].numeroRegistro,
+                bula: bula.content[0].idBulaPacienteProtegido,
+            };
+            console.log('Atualizando dados da bula do medicamento no banco de dados...');
+            const medicamentoAtualizado = await atualizarMedicamentoBD(medicamentoBula);
+            if (medicamentoAtualizado != null)
+                console.log(`Dados da bula foram incluídos no registro do medicamento... \n${JSON.stringify(medicamentoAtualizado, null, 4)}`);
+            return medicamentoAtualizado;
+        }
     } else {
         console.log('Não conseguimos a bula deste medicamento...');
         return medicamento;
@@ -200,7 +201,7 @@ async function consultarMedicamento(req: NextApiRequest, res: NextApiResponse) {
                 });
             }
         }
-    } catch (e) {
+    } catch (e: any) {
         return res.status(500).json({
             sucesso: false,
             mensagem: 'Ocorreu um erro durante a consulta de medicamento',
