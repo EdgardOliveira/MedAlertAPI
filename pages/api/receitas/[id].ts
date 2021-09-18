@@ -22,6 +22,7 @@ async function obter(req: NextApiRequest, res:NextApiResponse) {
             nome: "UNIMED DE MANAUS COOPERATIVA DE TRABALHO MEDICO LTDA",
             nomeFantasia: "UNIMED MANAUS",
             endereco: {
+                cep: "69050-001",
                 logradouro: "Av. Constantino Nery",
                 numero: "1413",
                 complemento: "",
@@ -45,6 +46,7 @@ async function obter(req: NextApiRequest, res:NextApiResponse) {
             validade: "2025-10-31",
             idade: "24",
             endereco: {
+                cep: "69050-002",
                 logradouro: "Av. Principal",
                 numero: "4",
                 complemento: "",
