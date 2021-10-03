@@ -2,6 +2,7 @@ import {NextApiRequest, NextApiResponse} from "next";
 import {IEmpresa, IMedicamento, IMedico, IPaciente} from "../../../lib/interfaces";
 import {hashSync} from "bcryptjs";
 import {autenticado} from "../../../lib/autenticado";
+import { prisma} from "../../../lib/db";
 
 export default autenticado(async function Receitas(req: NextApiRequest, res: NextApiResponse) {
     const metodo: String | undefined = req.method;

@@ -1,7 +1,7 @@
 import {NextApiRequest, NextApiResponse} from "next";
 import {IPaciente} from "../../../lib/interfaces";
 import {hashSync} from 'bcryptjs';
-import {prisma} from './../../../lib/db';
+import { prisma} from "../../../lib/db";
 import {autenticado} from "../../../lib/autenticado";
 
 export default autenticado(async function Pacientes(req: NextApiRequest, res: NextApiResponse) {

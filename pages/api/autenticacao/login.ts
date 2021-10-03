@@ -1,7 +1,7 @@
 import {NextApiRequest, NextApiResponse} from "next";
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
-
+import { prisma} from "../../../lib/db";
 
 export default async function Login(req: NextApiRequest, res: NextApiResponse) {
     const metodo = req.method;

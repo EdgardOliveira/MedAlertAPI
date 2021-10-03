@@ -1,4 +1,5 @@
 import {NextApiRequest, NextApiResponse} from "next";
+import { prisma} from "../../../lib/db";
 
 export default async function ReceitaEspecifica(req: NextApiRequest, res: NextApiResponse) {
     const metodo: String | undefined = req.method;

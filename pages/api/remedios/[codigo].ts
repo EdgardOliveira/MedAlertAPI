@@ -1,5 +1,6 @@
 import { Remedio } from "@prisma/client";
 import {NextApiRequest, NextApiResponse} from "next";
+import { prisma} from "../../../lib/db";
 
 export default async function Remedios(req: NextApiRequest, res: NextApiResponse) {
     const metodo = req.method;
