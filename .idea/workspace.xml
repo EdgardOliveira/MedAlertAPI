@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b7fb7104-1ce6-486f-a4db-aa1f7e3642f0" name="Changes" comment="fix: rota de receitas">
+      <change afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/autenticado.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/db.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/interfaces.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/next-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/autenticacao/login.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/consultas/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/grupos/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/medicos/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/pacientes/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/receitas/[id].ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/receitas/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/remedios/[codigo].ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vercel.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/Home.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1xSg6FmPEhQPnSjenB9KrlqMDHg" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mariadb" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Users\Edgard\Documents\Github\Node.js\medalertapi\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b7fb7104-1ce6-486f-a4db-aa1f7e3642f0" name="Changes" comment="" />
+      <created>1630353726510</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1630353726510</updated>
+      <workItem from="1630353728546" duration="4661000" />
+      <workItem from="1630365784932" duration="3053000" />
+      <workItem from="1630447654610" duration="16000" />
+      <workItem from="1630635853626" duration="245000" />
+      <workItem from="1631995239489" duration="1938000" />
+      <workItem from="1631997532978" duration="1907000" />
+      <workItem from="1632090328767" duration="824000" />
+      <workItem from="1632101773736" duration="630000" />
+      <workItem from="1632147007342" duration="3730000" />
+      <workItem from="1632409780666" duration="3063000" />
+      <workItem from="1632491109767" duration="1208000" />
+      <workItem from="1632497767485" duration="3173000" />
+      <workItem from="1632931319980" duration="1479000" />
+      <workItem from="1633110355964" duration="1603000" />
+      <workItem from="1633267547967" duration="717000" />
+    </task>
+    <task id="LOCAL-00001" summary="feat: Consulta de medicamentos pelo GTIN/EAN">
+      <created>1630355091535</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1630355091535</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: Consulta de medicamentos pelo GTIN/EAN">
+      <created>1630356538695</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1630356538695</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: rota de receitas">
+      <created>1631997624534</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1631997624534</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: rota de receitas">
+      <created>1631997993249</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1631997993249</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: rota de receitas">
+      <created>1631998751085</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1631998751085</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix: rota de receitas">
+      <created>1632151365440</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1632151365440</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="feat: Consulta de medicamentos pelo GTIN/EAN" />
+    <MESSAGE value="feat: rota de receitas" />
+    <MESSAGE value="fix: rota de receitas" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: rota de receitas" />
+  </component>
+</project>
