@@ -1,2 +1,0 @@
-# MedAlertAPI
-API do MedAlertApp
