@@ -25,6 +25,7 @@ model Grupo {
 
 model Usuario {
     id          String      @id @default(dbgenerated()) @map("_id") @db.ObjectId
+    nome        String
     email       String      @unique
     senha       String
     grupo       Grupo       @relation(fields:[grupoId], references:[id])
@@ -95,14 +96,12 @@ model Especialidade {
 
 model Medico {
     id              String          @id @default(dbgenerated()) @map("_id") @db.ObjectId
-    nome            String
     crm             String          @unique
     especialidade   Especialidade   @relation(fields: [especialidadeId], references: [id])
     especialidadeId String          @db.ObjectId
     consultas       Consulta[]
     usuario         Usuario         @relation(fields: [usuarioId], references: [id])
     usuarioId       String          @db.ObjectId
-    @@index([nome])
     @@map("medicos")
 }
 
@@ -123,7 +122,7 @@ model Convenio {
 
 model Paciente {
     id              String      @id @default(dbgenerated()) @map("_id") @db.ObjectId
-    nome            String      @unique
+    cpf             String      @unique
     dataNascimento  DateTime
     convenio        Convenio    @relation(fields: [convenioId], references: [id])
     convenioId      String      @db.ObjectId

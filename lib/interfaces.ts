@@ -1,5 +1,5 @@
 export interface IPaciente {
-    nome: string
+    cpf: string
     dataNascimento: Date
     convenio: {
         produto: string
@@ -21,6 +21,7 @@ export interface IPaciente {
         uf: string
     }
     usuario: {
+        nome: string
         email: string
         senha: string
         grupo: string
@@ -28,10 +29,10 @@ export interface IPaciente {
 }
 
 export interface IMedico {
-    nome: string
     crm: string
     especialidade: string
     usuario: {
+        nome: string
         email: string
         senha: string
         grupo: string

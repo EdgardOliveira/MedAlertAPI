@@ -32,7 +32,7 @@ export async function cadastrar(req: NextApiRequest, res: NextApiResponse) {
         //verificando se o paciente já existe
         const consulta = await prisma.paciente.findUnique({
             where: {
-                nome: paciente.nome
+                cpf: paciente.cpf
             }
         });
 
@@ -40,7 +40,7 @@ export async function cadastrar(req: NextApiRequest, res: NextApiResponse) {
             //usuário não existe... criptografa a senha e cadastra no banco de dados
             const resultado = await prisma.paciente.create({
                 data: {
-                    nome: paciente.nome,
+                    cpf: paciente.cpf,
                     dataNascimento: paciente.dataNascimento,
                     usuario: {
                         connectOrCreate: {
@@ -48,6 +48,7 @@ export async function cadastrar(req: NextApiRequest, res: NextApiResponse) {
                                 email: paciente.usuario.email
                             },
                             create: {
+                                nome: paciente.usuario.nome,
                                 email: paciente.usuario.email,
                                 senha: hashSync(paciente.usuario.senha, 12),
                                 grupo: {

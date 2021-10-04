@@ -31,8 +31,6 @@ export async function obterTodas(req: NextApiRequest, res: NextApiResponse) {
         }
     });
 
-    console.log(`paciente:\n${JSON.stringify(paciente, null, 4)}`)
-
     try {
         //verificando se os campos foram fornecidos
         if (paciente == null) {

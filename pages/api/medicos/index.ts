@@ -40,7 +40,6 @@ export async function cadastrar(req: NextApiRequest, res: NextApiResponse) {
             //usuário não existe... criptografa a senha e cadastra no banco de dados
             const resultado = await prisma.medico.create({
                 data: {
-                    nome: medico.nome,
                     crm: medico.crm,
                     especialidade: {
                         connectOrCreate: {
@@ -58,6 +57,7 @@ export async function cadastrar(req: NextApiRequest, res: NextApiResponse) {
                                 email: medico.usuario.email
                             },
                             create: {
+                                nome: medico.usuario.nome,
                                 email: medico.usuario.email,
                                 senha: hashSync(medico.usuario.senha, 12),
                                 grupo: {

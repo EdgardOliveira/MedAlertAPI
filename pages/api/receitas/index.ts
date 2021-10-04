@@ -88,10 +88,10 @@ async function cadastrar(req: NextApiRequest, res: NextApiResponse) {
                 paciente: {
                     connectOrCreate: {
                         where: {
-                            nome: paciente.nome
+                            cpf: paciente.cpf
                         },
                         create: {
-                            nome: paciente.nome,
+                            cpf: paciente.cpf,
                             dataNascimento: paciente.dataNascimento,
                             usuario: {
                                 connectOrCreate: {
@@ -99,6 +99,7 @@ async function cadastrar(req: NextApiRequest, res: NextApiResponse) {
                                         email: paciente.usuario.email
                                     },
                                     create: {
+                                        nome: paciente.usuario.nome,
                                         email: paciente.usuario.email,
                                         senha: hashSync(paciente.usuario.senha, 12),
                                         grupo: {
@@ -178,7 +179,6 @@ async function cadastrar(req: NextApiRequest, res: NextApiResponse) {
                             crm: medico.crm
                         },
                         create: {
-                            nome: medico.nome,
                             crm: medico.crm,
                             especialidade: {
                                 connectOrCreate: {
@@ -196,6 +196,7 @@ async function cadastrar(req: NextApiRequest, res: NextApiResponse) {
                                         email: medico.usuario.email
                                     },
                                     create: {
+                                        nome: medico.usuario.nome,
                                         email: medico.usuario.email,
                                         senha: hashSync(medico.usuario.senha, 12),
                                         grupo: {
