@@ -67,10 +67,10 @@ export async function cadastrar(req: NextApiRequest, res: NextApiResponse) {
                                         },
                                         create: {
                                             nome: medico.usuario.grupo
-                                        },
-                                    },
-                                },
-                            },
+                                        }
+                                    }
+                                }
+                            }
                         },
                     },
                 },
