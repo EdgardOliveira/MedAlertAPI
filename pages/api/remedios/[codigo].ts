@@ -1,19 +1,20 @@
 import { Remedio } from "@prisma/client";
 import {NextApiRequest, NextApiResponse} from "next";
+import { autenticado } from "../../../lib/autenticado";
 import { prisma} from "../../../lib/db";
 
-export default async function Remedios(req: NextApiRequest, res: NextApiResponse) {
+export default autenticado(async function Remedios(req: NextApiRequest, res: NextApiResponse) {
     const metodo = req.method;
 
     switch (metodo) {
         case "GET":
-            await consultarRemedio(req, res);
+            consultarRemedio(req, res);
             break;
         default:
             res.setHeader('Allow', ['GET'])
             res.status(405).end(`Método: ${metodo} não é permitido para esta rota`);
     }
-}
+});
 
 async function consultarRemedioBD(codigo: String) {
     console.log(`Foi solicitado a consulta de um remedio no banco de dados pelo GTIN/EAN: ${codigo}`);
@@ -46,22 +47,26 @@ async function cadastrarRemedioBD(remedio: Remedio) {
     return remedioCadastrado;
 }
 
-async function atualiarRemedioBD(remedio: Remedio) {
-    console.log('Foi solicitado a atualização de dados do remédio no banco de dados...');
+async function atualizarRemedioBD(remedio: Remedio) {
+    console.log(`Foi solicitado a atualização de dados do remédio no banco de dados... GTIN: ${remedio.gtin}`);
 
-    const remedioAtualizado = await prisma.remedio.update({
-        where: {
-            gtin: remedio.gtin
-        },
-        data: remedio
-    });
-
-    if (remedioAtualizado != null)
-        console.log('Os dados do remédio foram atualizados no banco de dados...');
-    else
-        console.log('O remédio não foi atualizado no banco de dados');
-
-    return remedioAtualizado;
+    // try{
+    //     const remedioAtualizado = await prisma.remedio.update({
+    //         where: {
+    //             gtin: String(remedio.gtin)
+    //         },
+    //         data: JSON.stringify(remedio)
+    //     });
+    //
+    //     if (remedioAtualizado != null)
+    //         console.log('Os dados do remédio foram atualizados no banco de dados...');
+    //     else
+    //         console.log('O remédio não foi atualizado no banco de dados');
+    //     return remedioAtualizado;
+    // } finally {
+    //
+    // }
+    return remedio;
 }
 
 async function consultarCosmosAPI(codigo: String) {
@@ -118,7 +123,7 @@ async function consultarBulaAPI(remedio: Remedio) {
                 bula: bula.content[0].idBulaPacienteProtegido,
             };
             console.log('Atualizando dados da bula do remedio no banco de dados...');
-            const remedioAtualizado = await atualiarRemedioBD(remedioBula);
+            const remedioAtualizado = await atualizarRemedioBD(remedioBula);
             if (remedioAtualizado != null)
                 console.log(`Dados da bula foram incluídos no registro do remédio... \n${JSON.stringify(remedioAtualizado, null, 4)}`);
             return remedioAtualizado;
