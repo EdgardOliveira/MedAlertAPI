@@ -2,9 +2,8 @@ import {NextApiRequest, NextApiResponse} from "next";
 import {compare} from "bcryptjs";
 import {sign} from "jsonwebtoken";
 import {prisma} from "../../../lib/db";
-import { Usuario } from "@prisma/client";
 
-export default async function Login(req: NextApiRequest, res: NextApiResponse) {
+export default async function login(req: NextApiRequest, res: NextApiResponse) {
     const metodo = req.method;
 
     switch (metodo) {
@@ -19,33 +18,27 @@ export default async function Login(req: NextApiRequest, res: NextApiResponse) {
 
 async function verificarCredenciais(req: NextApiRequest, res: NextApiResponse) {
     const {email, senha} = req.body;
-
     try {
         if (!email || !senha) {
             return await res.status(400).json({
                 sucesso: false,
-                mensagem: 'Preencha todos os campos obrigatórios.',
+                mensagem: 'Preencha os campos obrigatórios.',
                 enviado: req,
             });
         }
 
-        const usuario: Usuario | null = await prisma.usuario.findUnique({
+        const usuario = await prisma.usuario.findUnique({
             where: {
-                email: email,
-            }
+                email: email
+            },
         });
 
-        if (!usuario) {
-            return await res.status(400).json({
-                sucesso: false,
-                mensagem: 'Credenciais inválidas',
-                enviado: req,
-            });
-        }else{
+        if (usuario != null) {
             compare(senha, usuario.senha, async function (err, result) {
                 if (!err && result) {
-                    const claims = {sub: usuario.id, email: usuario.email};
+                    const claims = {sub: usuario.id, myPersonEmail: usuario.email};
                     const jwt = sign(claims, String(process.env.JWT_SECRET), {expiresIn: '1h'});
+
                     return res.status(200).json({
                         sucesso: true,
                         mensagem: 'Autenticado com sucesso!',
@@ -54,15 +47,21 @@ async function verificarCredenciais(req: NextApiRequest, res: NextApiResponse) {
                 } else {
                     return res.status(401).json({
                         sucesso: false,
-                        mensagem: "As credenciais fornecidas são inválidas",
+                        mensagem: "Credenciais inválidas",
                         enviado: req.body
                     });
                 }
             });
+        } else {
+            return res.status(401).json({
+                sucesso: false,
+                mensagem: "E-mail não encontrado no banco de dados",
+                enviado: req.body
+            });
         }
     } catch (e) {
         if (e instanceof Error) {
-            return res.status(405).json({
+            res.status(405).json({
                 sucesso: false,
                 mensagem: "Ocorreu um erro ao tentar fazer login.",
                 erro: e.message,

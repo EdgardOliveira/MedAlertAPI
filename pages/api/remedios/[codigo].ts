@@ -4,7 +4,7 @@ import {autenticado} from "../../../lib/autenticado";
 import {prisma} from "../../../lib/db";
 import {IBula, IRemedio} from "../../../lib/interfaces";
 
-export default autenticado(async function (req: NextApiRequest, res: NextApiResponse) {
+export default autenticado(async function remedios(req: NextApiRequest, res: NextApiResponse) {
     const metodo = req.method;
 
     switch (metodo) {

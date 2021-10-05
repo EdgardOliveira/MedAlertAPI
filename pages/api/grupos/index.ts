@@ -2,7 +2,7 @@ import {NextApiRequest, NextApiResponse} from "next";
 import {autenticado} from "../../../lib/autenticado";
 import {prisma} from "../../../lib/db";
 
-export default autenticado(async function (req: NextApiRequest, res: NextApiResponse) {
+export default autenticado(async function grupos(req: NextApiRequest, res: NextApiResponse) {
     const metodo = req.method;
 
     switch (metodo) {

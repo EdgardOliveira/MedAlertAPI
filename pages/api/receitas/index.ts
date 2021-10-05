@@ -4,7 +4,7 @@ import {hashSync} from "bcryptjs";
 import {autenticado} from "../../../lib/autenticado";
 import {prisma} from "../../../lib/db";
 
-export default autenticado(async function (req: NextApiRequest, res: NextApiResponse) {
+export default autenticado(async function receitas(req: NextApiRequest, res: NextApiResponse) {
     const metodo: String | undefined = req.method;
 
     switch (metodo) {

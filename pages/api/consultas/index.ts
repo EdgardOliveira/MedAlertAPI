@@ -3,7 +3,7 @@ import {NextApiRequest, NextApiResponse} from "next";
 import {JwtPayload, verify, VerifyErrors} from "jsonwebtoken";
 import {prisma} from "../../../lib/db";
 
-export default autenticado(async function (req: NextApiRequest, res: NextApiResponse) {
+export default autenticado(async function consultas(req: NextApiRequest, res: NextApiResponse) {
     const metodo = req.method;
 
     switch (metodo) {
