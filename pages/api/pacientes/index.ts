@@ -48,8 +48,8 @@ export async function cadastrar(req: NextApiRequest, res: NextApiResponse) {
                                 email: paciente.usuario.email
                             },
                             create: {
-                                nome: paciente.usuario.nome,
                                 email: paciente.usuario.email,
+                                nome: paciente.usuario.nome,
                                 senha: hashSync(paciente.usuario.senha, 12),
                                 grupo: {
                                     connectOrCreate: {

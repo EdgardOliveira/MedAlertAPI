@@ -57,8 +57,8 @@ export async function cadastrar(req: NextApiRequest, res: NextApiResponse) {
                                 email: medico.usuario.email
                             },
                             create: {
-                                nome: medico.usuario.nome,
                                 email: medico.usuario.email,
+                                nome: medico.usuario.nome,
                                 senha: hashSync(medico.usuario.senha, 12),
                                 grupo: {
                                     connectOrCreate: {
