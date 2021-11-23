@@ -42,6 +42,8 @@ async function verificarCredenciais(req: NextApiRequest, res: NextApiResponse) {
                     return res.status(200).json({
                         sucesso: true,
                         mensagem: 'Autenticado com sucesso!',
+                        nome: usuario.nome,
+                        email: usuario.email,
                         token: jwt
                     });
                 } else {
