@@ -16,6 +16,11 @@ enum Status {
     ATIVO
 }
 
+enum StatusGerenciamento {
+    PENDENTE
+    OK
+}
+
 model Grupo {
     id          String      @id @default(dbgenerated()) @map("_id") @db.ObjectId
     nome        String      @unique
@@ -192,4 +197,17 @@ model Remedio {
     status              Status      @default(ATIVO)
     @@index([nome, idProduto, registro])
     @@map(name:"remedios")
+}
+
+model Gerenciamento {
+    id                  String      @id @default(dbgenerated()) @map("_id") @db.ObjectId @unique
+    dispensadorId       String
+    pacienteId          String
+    receitaId           String
+    dataHora            DateTime
+    recipiente          Int
+    status              StatusGerenciamento @default(PENDENTE)
+    dataHoraConfirmacao DateTime?
+    @@index([dispensadorId, pacienteId, receitaId, status, dataHoraConfirmacao])
+    @@map(name:"gerenciamentos")
 }

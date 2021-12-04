@@ -91,3 +91,14 @@ export interface IRemedioComBula {
     remedio: IRemedio
     bula: IBula
 }
+
+export interface IGerenciamento {
+    id: string
+    dispensadorId: string
+    pacienteId: string
+    receitaId: string
+    dataHora: Date
+    recipiente: number
+    status: string
+    dataHoraConfirmacao: Date | null
+}
